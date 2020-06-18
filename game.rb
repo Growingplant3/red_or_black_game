@@ -65,9 +65,9 @@ def game_judgment
   end
   puts "-"*20
   puts "fin"
-  exit
 end
 
 game_explanation
 game_select
 game_judgment
+exit
