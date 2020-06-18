@@ -1,4 +1,4 @@
-def edit_name(name)
+def set_name(name)
   @name = name
 end
 
@@ -10,7 +10,7 @@ def game_explanation
   puts "あなたの名前を入力してください。"
   puts "-"*20
   name = gets.chomp
-  edit_name(name)
+  set_name(name)
   puts "-"*20
   puts "#{@name}さんですね。わかりました。"
   puts "今から貴方にはゲームをしてもらいます。"
@@ -21,8 +21,6 @@ def game_explanation
   puts "さぁ、どっちを選びますか？"
   puts "-"*20
   puts "チャンスは1度だけ！"
-
-  game_select
 end
 
 def game_select
@@ -37,12 +35,12 @@ def game_select
       puts "-"*20
       puts "左だあぁ！" 
       puts "-"*20
-      game_judgment
+      break
     elsif @card == 2
       puts "-"*20
       puts "右に違いねぇ！"
       puts "-"*20
-      game_judgment
+      break
     else
       puts "正しい値を入力してください。"
       puts "-"*20
@@ -65,8 +63,11 @@ def game_judgment
     puts "クラブのAだ！"
     puts "#{@name}さんの負けです。"
   end
+  puts "-"*20
   puts "fin"
   exit
 end
 
 game_explanation
+game_select
+game_judgment
