@@ -1,3 +1,7 @@
+def set_continue(continue)
+  @continue = continue
+end
+
 def set_name(name)
   @name = name
 end
@@ -64,10 +68,28 @@ def game_judgment
     puts "#{@name}さんの負けです。"
   end
   puts "-"*20
-  puts "fin"
 end
 
-game_explanation
-game_select
-game_judgment
-exit
+def game_play
+  game_explanation
+  game_select
+  game_judgment
+end
+
+while true do
+  game_play
+  puts "もう一回挑戦する？[y/n]"
+  puts "-"*20
+  while true do
+    @continue = gets.chomp
+    if @continue == "n"
+      puts "fin"
+      exit
+    elsif @continue == "y"
+      break
+    else
+      puts "正しい値を入力してください。"
+      puts "-"*20
+    end
+  end
+end
